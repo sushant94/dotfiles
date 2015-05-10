@@ -82,3 +82,15 @@ set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
+let mapleader="," 
+
+" clang formatter
+let g:clang_format#code_style = 'mozilla'
+"let g:clang_format#auto_format = 1
+"let g:clang_format#auto_formatexp = 1
+"let g:clang_format#auto_format_on_insert_leave = 1
+let g:clang_format#command = 'clang-format-3.4'
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+
